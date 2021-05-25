@@ -1,0 +1,56 @@
+QUESTION:
+    Code review.
+    JDBC connection.
+    How to set so oil companies and AER cannot send SOC's
+    JDBC URL is not printed, i need to demonstrate that i can connect to it.
+
+
+    DriverBasedTest and ContractTest do not show output.
+    what is the difference between:
+        -- Integration test
+        -- Flow tests
+        -- Contract test
+        -- State test
+
+
+
+
+gradlew.bat clean deployNodes
+
+cd build/nodes
+runnodes.bat
+
+-- Open the configs in the node.configs files found in build/nodes.
+
+-- Pull up the different node consols.
+help
+
+-- This is the list of flows that our DAP can run.
+-- Type this into the terminals.
+list flow
+
+-- This will execute the ExampleFlow
+flow start SOCFlow industryParticipantIdentity: "O=HuskeyOil,L=RedDeer,C=CA", aerIdentity: "O=AER,L=Calgary,C=CA", title: "Huskey is blocking the road", description: "Their trucks are big and they are blocking the road i cannot go anwhere without these trucks all over the rabble rabble rabble rabble.", location: "1234567890123"
+
+
+-- Query the vault
+run vaultQuery contractStateType: net.corda.samples.example.states.IOUState
+
+-- Connect to a H2 DB
+    -- username = sa
+    -- password =
+
+-- TESTING
+
+-- Integration test
+    Workflows > src > IntegrationTest > DriverBasedTest
+
+-- Flow tests
+    Workflow > src > test > FlowTests
+
+-- Contract test
+    Contracts > src > test > ContractTests.
+
+-- State test
+
+
